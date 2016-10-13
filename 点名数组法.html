@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" id="btn" value="点名">
+	<script>
+		var personArr=[
+					"top",
+					"gd",
+					"taeyang",
+					"daesheng",
+					"shengli"]
+		var arr=[];
+		function personSelector(){
+			var num=Math.floor(Math.random()*personArr.length);
+			var person=personArr[num];
+			if(arr.length==0){
+				console.log(person)
+				arr.push(person)
+			}else if(arr.length<personArr.length){
+					for(i=0;i<arr.length;i++){
+						if(person===arr[i]){
+							personSelector();
+							return;
+						}
+					}
+					console.log(person)
+					arr.push(person)
+			}
+		}
+		var oBtn=document.querySelector("#btn")
+		oBtn.onclick=personSelector	
+	</script>
+</body>
+</html>

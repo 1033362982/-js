@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style/bootstrap.css">
+</head>
+<body>
+	<button id="age">按年龄排序</button>
+	<button id="achievement">按成绩排序</button>
+	<table class="table table-striped table-hover table-bordered">
+		<thead>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>成绩</th>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+	<script src="script/jquery.js"></script>
+	<script>
+		$("#age").click(function(){
+			ageSort(studentsList)
+			showData(studentsList)
+		})
+		$("#achievement").click(function(){
+			achievementSort(studentsList)
+			showData(studentsList)
+		})		
+		var studentsList=[
+						{
+							name:"超人",
+							age: 100,
+							achievement:90
+						},
+						{
+							name:"蝙蝠侠",
+							age:30,
+							achievement:9 
+						},
+						{
+							name:"绿巨人",
+							age:34,
+							achievement:150
+						},
+						{
+							name:"蚁人",
+							age:99,
+							achievement:50 
+						},
+		]
+		showData(studentsList)
+		function bubbleSort(stuList,member){
+			var len=stuList.length
+			for(var i=len;i>=2;i--){
+				for(var j=0;j<i-1;j++){
+					if(stuList[j][member]>stuList[j+1][member]){
+						var temp = stuList[j];
+						stuList[j] = stuList[j+1];
+						stuList[j+1] = temp;
+					}
+				}
+			}
+		}
+		function showData(stuList){
+			$("table tbody").empty()
+			for(var i in stuList){
+			var $tr=$("<tr></tr>")
+			for(var j in stuList[i]){
+				var text=stuList[i][j]
+				var $td=$("<td></td>")
+				$td.text(text)
+				$tr.append($td)
+
+			}
+			$("table tbody").append($tr)
+		}
+		}
+		
+		function achievementSort(stuList){
+			bubbleSort(stuList,"achievement");
+		}
+		function ageSort(stuList){
+			bubbleSort(stuList,"age");
+		}
+
+
+		ageSort(studentsList);
+		console.log(studentsList);
+	</script>
+</body>
+</html>

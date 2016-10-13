@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<link rel="stylesheet" href="style/bootstrap.css">
+</head>
+<body>
+	<button id="age">按年龄排序</button>
+	<button id="achievement">按成绩排序</button>
+	<table class="table table-bordered table-striped  table-hover">
+		<thead>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>成绩</th>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<script src="script/jquery.js"></script>
+	<script src="data.js"></script>
+	<script>
+		showData(studentsList.data);
+
+		$("#age").click(function(){
+			studentsList.ageSort();
+			showData(studentsList.data);
+		})
+		$("#achievement").click(function(){
+			studentsList.achievementSort();
+			showData(studentsList.data);
+		})
+
+
+		function showData(stuList){
+			$("table tbody").empty();
+			for(var i in stuList){
+				var $tr = $("<tr>");
+				for(var j in stuList[i]){
+					var text = stuList[i][j];
+					var $td = $("<td>");
+					$td.text(text);
+					$tr.append($td);
+				}
+				$("table tbody").append($tr);
+			}
+		}
+
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		// arguments介绍
+		// function fun(x,y){
+		// 	var result=x+y;
+		// 	console.log(arguments.length)/*argument可写在函数里*/
+		// 	return result
+		// }
+		// var re=fun(1,2);
+		// console.log(re)
+		// function fun(){
+		// 	console.log(arguments[0]);
+		// 	console.log(arguments[1]);
+		// 	console.log(arguments[2]);
+		// 	console.log(arguments.length);
+		// }
+		// /*只要传实参就可以获取*/
+		// fun(10,20,30);
+		// arguments实例/*传一个参数计算平方，传两个参数计算乘积*/
+		// function fun(x,y){
+		// 	if(arguments.length==1){
+		// 	    var result=x*x
+		// 	    return result
+		//     }else if(arguments.length==2){
+		// 		var result=x*y
+		// 		return result
+		// 	}
+		// }
+		// var re=fun(5,6)
+		// console.log(re)
+		function fun(){
+			if(arguments.length==1){
+				var result=arguments[0]*arguments[0]
+			    return result
+			}else if(arguments.length==2){
+				var result=arguments[0]*arguments[1]
+			    return result
+			}
+		}
+		console.log(fun(5,6))
+	</script>
+</body>
+</html>

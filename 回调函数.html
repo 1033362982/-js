@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//把一个函数作为参数传给另一个函数  callback
+
+		function fun(callback){
+			callback();
+		}
+
+		fun(function(){
+			console.log("hello")
+		})
+
+	</script>
+</body>
+</html>

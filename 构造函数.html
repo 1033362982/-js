@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Cat(name){
+			this.name = name;
+			this.sayName = function(){
+				console.log("I'm " + this.name)
+			}
+		}
+		var cat1 = new Cat("miaomiao");
+		var cat2 = new Cat("mimi");
+		cat1.sayName();
+		cat2.sayName();
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<input type="button" id="btn" value="添加">
+	<ul id="list">
+		<li>1 <span class="del">删除</span></li>
+		<li>2 <span class="del">删除</span></li>
+		<li>3 <span class="del">删除</span></li>
+	</ul>
+	<script>
+		var oTxt=document.querySelector("#txt")
+		var oBtn=document.querySelector("#btn")
+		var oList=document.querySelector("#list")
+		oBtn.addEventListener("click",function(){
+			var val=oTxt.value
+			var textNode=document.createTextNode(val)
+			var liNode=document.createElement("li")
+			liNode.appendChild(textNode)
+			var spanNode=document.createElement("span")
+			spanNode.innerHTML="删除"
+			spanNode.className="del"
+			liNode.appendChild(spanNode)
+			oList.appendChild(liNode)
+		})
+		oList.addEventListener("click",function(){
+				var target=event.target
+				if(target.className=="del"){
+					this.removeChild(target.parentNode)
+				}
+		})
+	</script>
+</body>
+</html>

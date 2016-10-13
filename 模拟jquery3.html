@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" class="btn" value="按钮1">
+	<input type="button" class="btn" value="按钮2">
+	<input type="button" class="btn" value="按钮3">
+	<script src="myQuery.js"></script>
+	<script>
+		function $(selector){
+			return $.prototype.init(selector);
+		}
+
+		$.prototype = {
+			init:function(selector){
+				this.dom = document.querySelectorAll(selector)
+				return this
+			},
+			click:function(fun){
+				this.each(function(data){
+					data.addEventListener("click",fun,false);
+				})
+			},
+			each:function(fun){
+				var len = this.dom.length
+				for(var i = 0;i<len;i++){
+					fun(this.dom[i]);
+				}
+			},
+			attr:function(){
+				if(arguments.length === 1){
+					return this.dom[0][arguments[0]]
+				}else if(arguments.length === 2){
+					var attrName = arguments[0];
+					var val = arguments[1];
+					this.each(function(data){
+						data[attrName] = val;
+					})
+				}
+			}
+		}
+
+		$(".btn").attr("value","测试按钮");
+
+		///////////////////////////////////////////
+
+		function fun(callBack){
+			var data = "我是数据";
+			callBack(data);
+		}
+
+		fun(function(www){
+			console.log(www);
+		})
+
+		jsonp
+
+	</script>
+</body>
+</html>

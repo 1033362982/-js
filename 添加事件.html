@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn1">按钮1</button>
+	<button id="btn2">按钮2</button>
+	<button id="btn3">按钮3</button>
+	<button id="remove">移除事件</button>
+	<script>
+		var oBtn1=document.querySelector("#btn1")
+		var oBtn2=document.querySelector("#btn2")
+		var oBtn3 = document.querySelector("#btn3");
+		var oRemove = document.querySelector("#remove");
+		function fun(){
+			alert("fun click")
+		}
+		oBtn1.onclick=function(){
+			alert("first click")
+		}
+		oBtn2.onclick=function(){
+			alert("scecond click")
+		}
+		oBtn2.addEventListener("click",function(){
+			alert("first click")
+		},false)
+		oBtn2.addEventListener("click",function(){
+			alert("scecond click")
+		},false)
+		oBtn3.addEventListener("click",fun,false);
+
+		oRemove.addEventListener("click",function(){
+			oBtn3.removeEventListener("click",fun,false);
+			alert("btn3的事件已经移除")
+		},false)
+	</script>
+</body>
+</html>

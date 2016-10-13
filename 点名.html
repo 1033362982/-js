@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" id="btn" value="点名">
+
+	<script>
+		
+		var personArr=[
+					"top",
+					"gd",
+					"taeyang",
+					"daesheng",
+					"shengli"]
+		var obj={};/*obj属性的个数为抽过的人*/
+		function personSelector(){
+			var num = Math.floor(Math.random() * personArr.length);
+			var person = personArr[num];
+			
+				if(obj[person]===undefined){
+					obj[person]=1;
+					console.log(person);
+				}else if(getLength(obj) < personArr.length){
+					personSelector()
+				}
+			}
+		/*写一个函数获取obj属性的个数,若个数等于personArr.length，则抽取完毕*/
+		function getLength(o){
+			var n=0;
+			for(var i in o){
+				n++
+			}
+			return n
+		}
+		var oBtn=document.querySelector("#btn")
+		oBtn.onclick=personSelector	
+		
+	</script>
+</body>
+</html>
